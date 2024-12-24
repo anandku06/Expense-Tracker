@@ -15,7 +15,27 @@
 
         <div id="balance">Balance : ₹0.00/-</div>
 
-        <form id="transactionForm"></form>
+        <form id="transactionForm">
+          <input
+            type="text"
+            id="description"
+            placeholder="Transaction Description"
+            required
+          />
+
+          <input
+            type="number"
+            id="amount"
+            placeholder="Amount"
+            step="1.00"
+            required
+          />
+
+          <select id="type" required>
+            <option value="income">💰 Income</option>
+            <option value="expense">💸 Expense</option>
+          </select>
+        </form>
       </div>
     </div>
   </body>
