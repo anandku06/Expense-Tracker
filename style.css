@@ -143,3 +143,14 @@ button:hover {
     background-color: #c0392b;
     transform: translateY(0);
 }
+
+@media (max-width: 768px) {
+    .app-container{
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    #balance {
+        font-size: 2rem;
+    }
+}
