@@ -16,3 +16,28 @@ body{
     line-height: 1.6;   
 }
 
+.app-container {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.input-container {
+    flex: 1;
+    background: var(--card-backgorund);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+}
+
+.transaction-container {
+    flex: 1;
+    background: var(--card-backgorund);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    max-height: 500px;
+    overflow-y: auto; /* If the content exceeds the max height then it scrolls */
+}
