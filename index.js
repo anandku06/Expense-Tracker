@@ -103,6 +103,8 @@ class BudgetTracker {
     );
 
     this.balanceElement.textContent = `Balance: ₹${balance.toFixed(2)}`;
+
+    this.balanceElement.style.color = balance >= 0 ? 'green' : 'red'
   }
 }
 
