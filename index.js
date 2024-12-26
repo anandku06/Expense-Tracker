@@ -35,10 +35,16 @@ class BudgetTracker{
     renderTransactions(){
         this.transactionList.innerHTML = ''
         this.transactions.slice().sort((a, b) => b.id - a.id).forEach((transactions) => {
-            
+            const transactionDiv = document.createElement('div')
+            transactionDiv.classList.add("transaction", transactions.type)
+            transactionDiv.innerHTML = `
+            <span>${transactions.description}</span>
+                <span class="amount-container"> ₹ ${Math.abs(transactions.amount).toFixed(2)} <button class="delete-btn" data-id="${transactions.id}">Delete</button></span>
+            `
+            this.transactionList.appendChild(transactionDiv)
         })
-        // ensures the sequence is descending
-        // sort method: used to sort the array and modifies the original array; takes a callback function according to which sorting is done
+        // here data-id is used as a custom class for specificity of delete btn
+        // sort method: used to sort the array and modifies the original array; takes a callback function according to which sorting is done ; ensures the sequence is descending
     }
 
     deleteTransaction(id){}
