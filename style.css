@@ -100,7 +100,7 @@ button:hover {
 }
 
 #transactionList {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .transaction {
@@ -126,31 +126,31 @@ button:hover {
 }
 
 .amount-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .delete-btn {
-    background-color: var(--danger-color);
-    padding: 8px;
-    font-size: 0.8rem;
-    border-radius: 4px;
-    transition: all 300ms ease;
+  background-color: var(--danger-color);
+  padding: 8px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  transition: all 300ms ease;
 }
 
 .delete-btn:hover {
-    background-color: #c0392b;
-    transform: translateY(0);
+  background-color: #c0392b;
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
-    .app-container{
-        flex-direction: column;
-        padding: 1rem;
-    }
+  .app-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
 
-    #balance {
-        font-size: 2rem;
-    }
+  #balance {
+    font-size: 2rem;
+  }
 }
