@@ -96,7 +96,14 @@ class BudgetTracker {
     this.updateBalance();
   }
 
-  updateBalance() {}
+  updateBalance() {
+    const balance = this.transactions.reduce(
+      (total, transaction) => total + transaction.amount,
+      0
+    );
+
+    this.balanceElement.textContent = `Balance: ₹${balance.toFixed(2)}`;
+  }
 }
 
 const budgetTracker = new BudgetTracker();
