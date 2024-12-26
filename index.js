@@ -1,12 +1,12 @@
 const transactions = [
     {
-        id : Date.now(),
+        id : 1,
         description : "Monthly Salary",
         amount : 1500,
         type : 'income'
     },
     {
-        id : Date.now(),
+        id : 2,
         description : "Freelance Writing",
         amount : -500,
         type : 'expense'
