@@ -45,9 +45,24 @@ class BudgetTracker{
         })
         // here data-id is used as a custom class for specificity of delete btn
         // sort method: used to sort the array and modifies the original array; takes a callback function according to which sorting is done ; ensures the sequence is descending
+
+        this.attachDeleteEventListener()
     }
 
-    deleteTransaction(id){}
+    attachDeleteEventListener(){
+        this.transactionList.querySelectorAll(".delete-btn").forEach(button => {
+            button.addEventListener("click", () => {
+                this.deleteTransaction(parseInt(button.dataset.id))
+            })
+        })
+    }
+    // dataset is a property of JavaScript object used to access all custom data attributes (attributes prefixed with 'data-') of an HTML element.
+    deleteTransaction(id){
+        this.transactions = this.transactions.filter((transactions) => transactions.id !== id)
+
+        this.renderTransactions()
+        this.updateBalance()
+    }
 
     updateBalance(){}
 }
