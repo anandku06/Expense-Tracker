@@ -25,12 +25,17 @@ class BudgetTracker{
         })
     }
 
+    clearForm(){
+        document.getElementById('description').value = ''
+        document.getElementById('amount').value = ''
+    }
+
     addTransaction(){
         const description = document.getElementById("description").value.trim()
         const amount = parseFloat(document.getElementById('amount').value.trim())
         const type = document.getElementById('type').value
 
-        if(!description || !isNaN(amount)){
+        if(!description || isNaN(amount)){
             alert("Please provide valid details")
             return
         }
@@ -43,7 +48,10 @@ class BudgetTracker{
         }
 
         this.transactions.push(transaction)
-        this.saveTransactions
+        this.saveTransactions()
+        this.renderTransactions()
+        this.updateBalance()
+        this.clearForm()
     }
 
     renderTransactions(){
@@ -74,6 +82,7 @@ class BudgetTracker{
     deleteTransaction(id){
         this.transactions = this.transactions.filter((transactions) => transactions.id !== id)
 
+        this.saveTransactions()
         this.renderTransactions()
         this.updateBalance()
     }
