@@ -1,19 +1,3 @@
-const transactions = [
-    {
-        id : 1,
-        description : "Monthly Salary",
-        amount : 1500,
-        type : 'income'
-    },
-    {
-        id : 2,
-        description : "Freelance Writing",
-        amount : -500,
-        type : 'expense'
-    }
-]
-
-
 class BudgetTracker{
     constructor(){
         this.transactions = this.loadTransactions()
@@ -27,10 +11,40 @@ class BudgetTracker{
     }
 
     loadTransactions(){
-        return transactions
+        return JSON.parse(localStorage.getItem("transactions")) || []
     }
 
-    initEventListeners(){}
+    saveTransactions(){
+        localStorage.setItem("transactions", JSON.stringify(this.transactions))
+    }
+
+    initEventListeners(){
+        this.form.addEventListener("submit", e => {
+            e.preventDefault()
+            this.addTransaction()
+        })
+    }
+
+    addTransaction(){
+        const description = document.getElementById("description").value.trim()
+        const amount = parseFloat(document.getElementById('amount').value.trim())
+        const type = document.getElementById('type').value
+
+        if(!description || !isNaN(amount)){
+            alert("Please provide valid details")
+            return
+        }
+
+        const transaction = {
+            id : Date.now(),
+            description,
+            amount : type === "expense" ? -amount : amount,
+            type
+        }
+
+        this.transactions.push(transaction)
+        this.saveTransactions
+    }
 
     renderTransactions(){
         this.transactionList.innerHTML = ''
