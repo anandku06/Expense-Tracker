@@ -1,3 +1,19 @@
+const transactions = [
+    {
+        id : Date.now(),
+        description : "Monthly Salary",
+        amount : 1500,
+        type : 'income'
+    },
+    {
+        id : Date.now(),
+        description : "Freelance Writing",
+        amount : -500,
+        type : 'expense'
+    }
+]
+
+
 class BudgetTracker{
     constructor(){
         this.transactions = this.loadTransactions()
@@ -11,12 +27,19 @@ class BudgetTracker{
     }
 
     loadTransactions(){
-        return []
+        return transactions
     }
 
     initEventListeners(){}
 
-    renderTransactions(){}
+    renderTransactions(){
+        this.transactionList.innerHTML = ''
+        this.transactions.slice().sort((a, b) => b.id - a.id).forEach((transactions) => {
+            
+        })
+        // ensures the sequence is descending
+        // sort method: used to sort the array and modifies the original array; takes a callback function according to which sorting is done
+    }
 
     deleteTransaction(id){}
 
